@@ -115,7 +115,7 @@ npm run dev
 Aplicação disponível em:
 
 ```text
-http://localhost:5173
+http://localhost:5173/add_tarefas/
 ```
 
 ---
