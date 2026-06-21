@@ -1,4 +1,4 @@
-# 📋 Todo List
+# Todo List
 
 Aplicação Full Stack para gerenciamento de tarefas, desenvolvida com React, Node.js, TypeScript e SQLite.
 
