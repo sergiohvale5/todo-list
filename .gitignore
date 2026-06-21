@@ -1,13 +1,47 @@
-# Node modules (frontend e backend)
-fron-tend/node_modules/
+# ==========================
+# NODE MODULES
+# ==========================
+
+front-end/node_modules/
 back-end/node_modules/
 
-# Env files
-fron-end/.env
+# ==========================
+# ENV FILES
+# ==========================
 
-# Builds
+front-end/.env
+back-end/.env
+
+# ==========================
+# DATABASES
+# ==========================
+
+back-end/database.db
+*.db
+
+# ==========================
+# BUILDS
+# ==========================
+
 front-end/dist/
 back-end/dist/
 
-# Logs
+# ==========================
+# LOGS
+# ==========================
+
 back-end/logs/
+*.log
+
+# ==========================
+# VSCODE
+# ==========================
+
+.vscode/
+
+# ==========================
+# OS FILES
+# ==========================
+
+.DS_Store
+Thumbs.db
