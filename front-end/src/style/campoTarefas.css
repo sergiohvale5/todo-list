@@ -1,0 +1,331 @@
+.container_add_tarefas,
+.container_add_tarefas_ativo {
+    max-width: 632px;
+    width: 100%;
+    height: 58px;
+
+    border-radius: 22px;
+    background-color: #ffffff;
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+
+    transition: all 0.2s ease;
+}
+
+.container_add_tarefas {
+    border: 1px solid #dfe5ed;
+}
+
+.container_add_tarefas_ativo {
+    border: 1px solid #4f84f75b;
+    box-shadow: 0 0 10px 20px #4f84f707;
+}
+
+.IoAdd {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background-color: #ecf3fa;
+    color: #758191;
+
+    font-size: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_tarefas {
+    flex: 1;
+
+    height: 24px;
+
+    padding: 0 8px;
+
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+}
+
+.btn_add_tarefas {
+    width: 92px;
+    height: 40px;
+
+    border: none;
+    border-radius: 17px;
+
+    background-color: rgb(212, 52, 34);
+    color: rgb(255, 255, 242);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.btn_add_tarefas:hover {
+    transform: scale(1.02);
+}
+
+.btn_add_tarefas:active {
+    transform: scale(0.99);
+}
+
+.tipos_tarefas {
+    width: 229px;
+    height: 38px;
+
+    padding: 4px;
+
+    border: 1px solid #e4e9ef;
+    border-radius: 17px;
+
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    gap: 2px;
+}
+
+.todas_tarefas,
+.tarefas_pendentes,
+.tarefas_concluidas,
+.todas_tarefas_ativado,
+.tarefas_pendentes_ativado,
+.tarefas_concluidas_ativado {
+    height: 28px;
+
+    border-radius: 13px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.todas_tarefas,
+.todas_tarefas_ativado {
+    width: 55px;
+}
+
+.tarefas_pendentes,
+.tarefas_pendentes_ativado {
+    width: 80px;
+}
+
+.tarefas_concluidas,
+.tarefas_concluidas_ativado {
+    width: 83px;
+}
+
+.todas_tarefas,
+.tarefas_pendentes,
+.tarefas_concluidas {
+    color: #677283;
+}
+
+.todas_tarefas_ativado,
+.tarefas_pendentes_ativado,
+.tarefas_concluidas_ativado {
+    background-color: #0a121f;
+    color: #ebf1f7;
+}
+
+.campoTarefa_1,
+.campoTarefa_2,
+.campoTarefa_3 {
+    max-width: 632px;
+    width: 100%;
+    height: 178px;
+
+    padding: 48px;
+
+    border: 1px dashed #dfe5ed;
+    border-radius: 20px;
+
+    background-color: #fcfdfe;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.campoTarefa_ativado_1,
+.campoTarefa_ativado_2,
+.campoTarefa_ativado_3 {
+    max-width: 632px;
+    width: 100%;
+    min-height: 178px;
+
+    padding: 24px;
+
+    border: 1px dashed #dfe5ed;
+    border-radius: 20px;
+
+    background-color: #fcfdfe;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.incon_list {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background-color: #ecf3fa;
+    color: #677283;
+
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto_comece_add_tarefas {
+    font-size: 15px;
+    color: #677283;
+}
+
+.campo_de_tarefas {
+    width: 100%;
+    min-height: 66px;
+
+    padding: 20px;
+
+    border: 1px solid #dfe5ed;
+    border-radius: 23px;
+
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    transition: all 0.2s ease;
+}
+
+.campo_de_tarefas:hover {
+    box-shadow: 0 0 10px 20px #4f84f707;
+}
+
+.campo_de_tarefas:hover .lixeira {
+    display: block;
+}
+
+.campo_de_tarefas:hover .editar {
+    display: block;
+}
+
+.tarefa_concluida {
+    width: 24px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    border: 2px solid #d5d9dd;
+    border-radius: 50%;
+
+    background-color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.tarefa_concluida:hover {
+    border-color: #3084f6;
+    transform: scale(1.05);
+}
+
+.tarefa_concluida:active {
+    transform: scale(1);
+}
+
+.tarefa,
+.efeito_de_tarefa_concluida {
+    flex: 1;
+
+    font-size: 14px;
+    color: #0a121f;
+
+    line-height: 1.5;
+
+    padding-top: 2px;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.efeito_de_tarefa_concluida {
+    text-decoration: line-through;
+}
+
+.editar{
+    flex-shrink: 0;
+
+    font-size: 16px;
+    color: #3082f6;
+
+    cursor: pointer;
+
+    display: none;
+
+    transition: all 0.2s ease;
+}
+
+.editar:hover {
+    transform: scale(1.07);
+}
+
+.editar:active {
+    transform: scale(1);
+}
+
+.lixeira {
+    flex-shrink: 0;
+
+    font-size: 16px;
+    color: rgb(212, 52, 34);
+
+    cursor: pointer;
+
+    display: none;
+
+    transition: all 0.2s ease;
+}
+
+.lixeira:hover {
+    transform: scale(1.07);
+}
+
+.lixeira:active {
+    transform: scale(1);
+}

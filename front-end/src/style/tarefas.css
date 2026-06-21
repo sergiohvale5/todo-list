@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.container_principal{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    background-color: #f4f8fc;
+}
+
+.container_principal_ativo{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    background-color: #f4f8fc;
+
+    filter: blur(4px);
+
+    pointer-events: none;
+}
+
+.container_secundario{
+    max-width: 612px;
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 100px 20px;
+}
+
+.titulo_tarefa{
+    cursor: default;
+}
+
+.frase{
+    color: #677283;
+    font-size: 14px;
+
+    cursor: default;
+}
