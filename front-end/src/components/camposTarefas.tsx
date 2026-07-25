@@ -76,6 +76,23 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
         setTexto("");
     }
 
+    async function enviarTextoEnter(event: React.KeyboardEvent<HTMLInputElement>) {
+        if(event.key !== 'Enter') return;
+
+        if(!texto.trim()){
+            alert("Preenchimento do campo obrigatório");
+            return;
+        }
+
+        await postTarefa(texto);
+
+        const tarefas = await getTarefa();
+
+        setArmazenaTexto(tarefas)
+
+        setTexto("");
+    }
+
     async function tarefaConcluida(id: number) {
         const tarefaConcluida = armazenaTexto.find((tarefa) => {
             return tarefa.id === id
@@ -122,6 +139,8 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
                     value={texto}
 
                     onChange={(event) => setTexto(event.target.value)}
+
+                    onKeyDown={(event) => enviarTextoEnter(event)}
                 />
 
                 <button type="button" className="btn_add_tarefas" onClick={() => {enviarTexto()}}>
