@@ -122,13 +122,6 @@ Dentro da pasta `back-end`:
 ```bash
 npm run dev
 ```
-
-Servidor disponível em:
-
-```text
-http://localhost:3000
-```
-
 ---
 
 ## Executando o Front-end
@@ -139,13 +132,6 @@ Dentro da pasta `front-end`:
 npm run dev
 ```
 
-Aplicação disponível em:
-
-```text
-http://localhost:5173
-```
----
-
 ## Testes
 
 O projeto utiliza **Vitest** e **Supertest** para testes.
@@ -153,7 +139,7 @@ O projeto utiliza **Vitest** e **Supertest** para testes.
 Para executar os testes:
 
 ```bash
-npm test
+npm run test
 ```
 
 ---
