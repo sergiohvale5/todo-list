@@ -7,7 +7,7 @@ function PagesTarefas(){
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/add_tarefas" element={<App />}/>
+                    <Route path="/" element={<App />}/>
 
                     <Route path="/add_tarefas/tarefas" element={<Tarefas />}/>
                 </Routes>
