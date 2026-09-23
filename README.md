@@ -87,7 +87,7 @@ npm install
 Crie um arquivo `.env` dentro da pasta back-end:
 
 ```env
-PORT=3000
+PORT=
 ```
 
 ---
