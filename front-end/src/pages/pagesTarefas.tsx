@@ -9,7 +9,7 @@ function PagesTarefas(){
                 <Routes>
                     <Route path="/" element={<App />}/>
 
-                    <Route path="/add_tarefas/tarefas" element={<Tarefas />}/>
+                    <Route path="/tarefas" element={<Tarefas />}/>
                 </Routes>
             </BrowserRouter>
         </>
