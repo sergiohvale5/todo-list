@@ -11,7 +11,7 @@ O sistema permite criar, visualizar, editar, concluir e remover tarefas, oferece
 O projeto possui uma versão publicada para acesso online.
 
 **Aplicação:**
-https://todo-list-production-1005.up.railway.app/add_tarefas
+https://diplomatic-unity-production-a64c.up.railway.app/add_tarefas
 
 ---
 
