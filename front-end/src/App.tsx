@@ -13,7 +13,7 @@ function App(){
 
       <p className="texto_tarefa">Adicione suas tarefas agora e organize sua rotina. Um espaço simples para se organizar e ser mais produtivo.</p>
 
-      <Link to="/tarefas" className="link_tarefas">
+      <Link to="/add_tarefas/tarefas" className="link_tarefas">
         <button className="btn_adicionar">
           <GrAdd className="icon_add"/>
           Adicionar tarefas
