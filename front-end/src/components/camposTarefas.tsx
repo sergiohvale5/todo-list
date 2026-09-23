@@ -26,6 +26,8 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
     const [ativo, setAtivo] = useState(false);
     const [estado, setEstado] = useState<number>(1);
     const [texto, setTexto] = useState<string>("");
+    const [alerta, setAlerta] = useState<string>("");
+    const [erro, setErro] = useState<string>("");
 
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -63,34 +65,64 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
 
     async function enviarTexto(){
         if(!texto.trim()){
-            alert("Preenchimento do campo obrigatório");
+            setAlerta("Preenchimento do campo obrigatório")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
+
             return;
         }
 
-        await postTarefa(texto);
+        try{
+            await postTarefa(texto);
 
-        const tarefas = await getTarefa();
+            const tarefas = await getTarefa();
 
-        setArmazenaTexto(tarefas)
+            setArmazenaTexto(tarefas)
 
-        setTexto("");
+            setTexto("");
+        }catch(err){
+            setErro("Erro ao adicionar tarefa");
+
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
     }
 
     async function enviarTextoEnter(event: React.KeyboardEvent<HTMLInputElement>) {
         if(event.key !== 'Enter') return;
 
         if(!texto.trim()){
-            alert("Preenchimento do campo obrigatório");
+            setAlerta("Preenchimento do campo obrigatório")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
+            
             return;
         }
 
-        await postTarefa(texto);
+        try{
+            await postTarefa(texto);
 
-        const tarefas = await getTarefa();
+            const tarefas = await getTarefa();
 
-        setArmazenaTexto(tarefas)
+            setArmazenaTexto(tarefas)
 
-        setTexto("");
+            setTexto("");
+        }catch(err){
+            setErro("Erro ao adicionar tarefa");
+
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
     }
 
     async function tarefaConcluida(id: number) {
@@ -98,16 +130,26 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
             return tarefa.id === id
         })
 
-        await putTarefaConcluida(
-            id, 
-            !tarefaConcluida?.concluida
-        );
+        try{
+            await putTarefaConcluida(
+                id, 
+                !tarefaConcluida?.concluida
+            );
 
-        setArmazenaTexto(() =>
-            armazenaTexto.map((tarefa) =>
-                tarefa.id === id ? {...tarefa, concluida: !tarefa.concluida} : tarefa
-            )
-        );
+            setArmazenaTexto(() =>
+                armazenaTexto.map((tarefa) =>
+                    tarefa.id === id ? {...tarefa, concluida: !tarefa.concluida} : tarefa
+                )
+            );
+        }catch(err){
+            setErro("Erro ao concluir tarefa");
+
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
     }
 
     const tarefas_concluidas = armazenaTexto.filter((tarefa) => {
@@ -119,18 +161,44 @@ function CampoAdicionarTarefa({armazenaTexto, setArmazenaTexto, setContador, set
     })
 
     async function excluirTarefa(id: number){
-        await deleteTarefa(id);
+        try{
+            await deleteTarefa(id);
 
-        const filterDelete = armazenaTexto.filter((tarefa) => {
-            return tarefa.id !== id;
-        })
+            const filterDelete = armazenaTexto.filter((tarefa) => {
+                return tarefa.id !== id;
+            })
 
-        setArmazenaTexto(filterDelete);
+            setArmazenaTexto(filterDelete);
+        }catch(err){
+            setErro("Erro ao deletar tarefa");
+            
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
     }
 
     return (
         <>
             <div ref={containerRef} className={ativo ? "container_add_tarefas_ativo" : "container_add_tarefas"} onClick={() => setAtivo(true)}>
+                {
+                    alerta && (
+                        <div className="notificacao_alerta">
+                            {alerta}
+                        </div>
+                    )
+                }
+
+                {
+                    erro && (
+                        <div className="notificacao_error">
+                            {erro}
+                        </div>
+                    )
+                }
+
                 <div className="IoAdd">
                     <IoAdd />
                 </div>

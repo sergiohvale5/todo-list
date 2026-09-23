@@ -1,5 +1,6 @@
 import "../style/campoAtualizar.css";
 import { putEditarTarefa } from "../service/apiTarefas";
+import { useState } from "react";
 
 type Tarefas = {
     id: number,
@@ -18,9 +19,17 @@ type EstadoProps = {
 }
 
 function CampoAtualizar({estadoAtualizar, setEstadoAtualizar, tarefaEditar, setTarefaEditar, idTarefaEditar, armazenaTexto, setArmazenaTexto}: EstadoProps){
+    const [alerta, setAlerta] = useState<string>("");
+    const [erro, setErro] = useState<string>("");
+
     async function editarTarefa(id: number){
         if(!tarefaEditar.trim()){
-            alert("Preenchimento do campo obrigatório");
+            setAlerta("Preenchimento do campo obrigatório")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
+            
             return;
         }
 
@@ -29,25 +38,105 @@ function CampoAtualizar({estadoAtualizar, setEstadoAtualizar, tarefaEditar, setT
         })
 
         if (tarefaEditar === tarefaOriginal?.tarefas) {
-            alert("Atualize a tarefa para salvar");
+            setAlerta("Atualize a tarefa para salvar")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
             return;
         }
 
-        await putEditarTarefa(id, tarefaEditar);
+        try{
+            await putEditarTarefa(id, tarefaEditar);
 
-        setArmazenaTexto(
-            armazenaTexto.map((tarefas) => {
-                return tarefas.id === idTarefaEditar ? {...tarefas, tarefas: tarefaEditar} : tarefas
-            })
-        );
+            setArmazenaTexto(
+                armazenaTexto.map((tarefas) => {
+                    return tarefas.id === idTarefaEditar ? {...tarefas, tarefas: tarefaEditar} : tarefas
+                })
+            );
 
-        setTarefaEditar("");
+            setTarefaEditar("");
 
-        setEstadoAtualizar(false);
+            setEstadoAtualizar(false);
+        }catch(err){
+            setErro("Erro ao editar tarefa");
+
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
     }
+
+    async function editarTarefaEnter(event: React.KeyboardEvent<HTMLInputElement>, id: number){
+        if(event.key !== 'Enter') return;
+
+        if(!tarefaEditar.trim()){
+            setAlerta("Preenchimento do campo obrigatório")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
+            
+            return;
+        }
+
+        const tarefaOriginal = armazenaTexto.find((tarefas) => {
+            return tarefas.id === idTarefaEditar
+        })
+
+        if (tarefaEditar === tarefaOriginal?.tarefas) {
+            setAlerta("Atualize a tarefa para salvar")
+            
+            setTimeout(() => {
+                setAlerta("");
+            }, 3000);
+            return;
+        }
+
+        try{
+            await putEditarTarefa(id, tarefaEditar);
+
+            setArmazenaTexto(
+                armazenaTexto.map((tarefas) => {
+                    return tarefas.id === idTarefaEditar ? {...tarefas, tarefas: tarefaEditar} : tarefas
+                })
+            );
+
+            setTarefaEditar("");
+
+            setEstadoAtualizar(false);
+        }catch(err){
+            setErro("Erro ao editar tarefa");
+
+            setTimeout(() => {
+                setErro("");
+            }, 3000);
+
+            throw err;
+        }
+    }
+
 
     return(
         <div className={estadoAtualizar ? "container_atualizacao_ativo" :"container_atualizacao"}>
+            {
+                alerta && (
+                    <div className="notificacao_alerta">
+                        {alerta}
+                    </div>
+                )
+            }
+
+            {
+                erro && (
+                    <div className="notificacao_error">
+                        {erro}
+                    </div>
+                )
+            }
+
             <p className="titulo_editar">Editar Tarefa</p>
 
             <p className="texto_atualizar">Atualize o texto e clique em salvar</p>
@@ -56,6 +145,8 @@ function CampoAtualizar({estadoAtualizar, setEstadoAtualizar, tarefaEditar, setT
                 value={tarefaEditar}
 
                 onChange={(event) => setTarefaEditar(event.target.value)}
+
+                onKeyDown={(event) => editarTarefaEnter(event, idTarefaEditar)}
             />
 
             <div className="container_btn">

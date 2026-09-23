@@ -136,3 +136,11 @@
 .btn_salvar:active{
     transform: scale(0.98);
 }
+
+/*
+    A estrutura da classe notificacao_alerta se encontra em campoTarefas.css
+*/
+
+/*
+    A estrutura da classe notificacao_erro se encontra em campoTarefas.css
+*/
