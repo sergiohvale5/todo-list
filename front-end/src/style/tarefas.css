@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.container_principal{
+.container_principal {
     width: 100%;
     min-height: 100vh;
 
@@ -20,9 +20,11 @@
     gap: 20px;
 
     background-color: #f4f8fc;
+
+    padding: 20px;
 }
 
-.container_principal_ativo{
+.container_principal_ativo {
     width: 100%;
     min-height: 100vh;
 
@@ -38,23 +40,54 @@
     filter: blur(4px);
 
     pointer-events: none;
+
+    padding: 20px;
 }
 
-.container_secundario{
-    max-width: 612px;
+.container_secundario {
     width: 100%;
+    max-width: 612px;
     min-height: 100vh;
 
     padding: 100px 20px;
 }
 
-.titulo_tarefa{
+.titulo_tarefa {
+    cursor: default;
+
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+.frase {
+    color: #677283;
+    font-size: clamp(12px, 2vw, 14px);
+
     cursor: default;
 }
 
-.frase{
-    color: #677283;
-    font-size: 14px;
+@media (max-width: 768px) {
+    .container_secundario {
+        max-width: 600px;
 
-    cursor: default;
+        padding: 70px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container_principal,
+    .container_principal_ativo {
+        padding: 15px;
+    }
+
+    .container_secundario {
+        padding: 50px 10px;
+    }
+
+    .titulo_tarefa {
+        font-size: 25px;
+    }
+
+    .frase {
+        font-size: 13px;
+    }
 }

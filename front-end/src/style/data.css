@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-.data{
+.data {
     max-width: 183px;
     width: 100%;
     height: 26px;
@@ -29,9 +29,32 @@
     cursor: default;
 }
 
-.calendario{
+.calendario {
     background-color: #f4f8fc;
     color: #2563EB;
 
     font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+    .data {
+        max-width: 180px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .data {
+        max-width: 175px;
+        height: 25px;
+
+        font-size: 11px;
+    }
+
+    .calendario {
+        font-size: 13px;
+    }
+
 }

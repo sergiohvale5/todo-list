@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-.progresso{
+.progresso {
     max-width: 632px;
     width: 100%;
     height: 130px;
@@ -25,7 +25,7 @@
     align-items: baseline;
 }
 
-.frase_progresso{
+.frase_progresso {
     font-size: 13px;
     font-weight: 600;
 
@@ -34,16 +34,18 @@
     cursor: default;
 }
 
-.dashboard{
+.dashboard {
     max-width: 590px;
     width: 100%;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 20px;
 }
 
-.numero_de_tarefas{
+.numero_de_tarefas {
     font-size: 27px;
     font-weight: 500;
     color: #0a121f;
@@ -51,13 +53,13 @@
     cursor: default;
 }
 
-.numero_de_tarefas_concluidas{
+.numero_de_tarefas_concluidas {
     color: #677283;
 
     cursor: default;
 }
 
-.taxa_de_tarefas_concluidas{
+.taxa_de_tarefas_concluidas {
     font-size: 24px;
     font-weight: 500;
 
@@ -70,7 +72,7 @@
     cursor: default;
 }
 
-.frase_concluido{
+.frase_concluido {
     font-size: 12px;
     font-weight: 600;
 
@@ -79,7 +81,7 @@
     cursor: default;
 }
 
-.linha_arredondada{
+.linha_arredondada {
     max-width: 590px;
     width: 100%;
     height: 8px;
@@ -87,4 +89,60 @@
     background-color: #ecf3fa;
 
     border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+
+    .progresso {
+        height: 125px;
+        padding: 18px;
+    }
+
+    .dashboard {
+        gap: 15px;
+    }
+
+    .numero_de_tarefas {
+        font-size: 25px;
+    }
+
+    .taxa_de_tarefas_concluidas {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .progresso {
+        height: auto;
+        min-height: 125px;
+
+        padding: 16px;
+
+        border-radius: 18px;
+    }
+
+    .frase_progresso {
+        font-size: 12px;
+    }
+
+    .dashboard {
+        gap: 10px;
+    }
+
+    .numero_de_tarefas {
+        font-size: 22px;
+    }
+
+    .taxa_de_tarefas_concluidas {
+        font-size: 20px;
+    }
+
+    .frase_concluido {
+        font-size: 11px;
+    }
+
+    .linha_arredondada {
+        height: 7px;
+    }
 }
